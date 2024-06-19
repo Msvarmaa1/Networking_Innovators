@@ -69,7 +69,7 @@ void viewconnections(int lid,node* head){			//Displays all connections of userid
 	if(temp->connections.size()==0)
 	 	cout<<" No connections "<<endl;
 	for(int i=0;i<temp->connections.size();i++){
-		cout<<" UserProfile(UserId: "<<temp->connections[i]<<", Name: "<<m[temp->connections[i]]<<")"<<endl;
+		cout<<endl<<"UserProfile(UserId: "<<temp->connections[i]<<", Name: "<<m[temp->connections[i]]<<")"<<endl;
 	}
 }
 void checkrequests(int cid,node* head){			//checks the requests of userid
@@ -78,12 +78,12 @@ void checkrequests(int cid,node* head){			//checks the requests of userid
 		temp=temp->next;
 	}
 	if(temp->requests.size()==0)
-	cout<<" No requsets "<<endl;
+	cout<<"No requsets "<<endl;
 	else{
 		int n=temp->requests.size();
 		for(int i=0;i<n;i++){
-			cout<<" Connection request from "<<m[temp->requests[i]]<<" to "<<m[cid]<<endl;
-			cout<<" Do you want to accept the request from "<<m[temp->requests[i]]<<" ?(y/n): ";
+			cout<<"Connection request from "<<m[temp->requests[i]]<<" to "<<m[cid]<<endl;
+			cout<<"Do you want to accept the request from "<<m[temp->requests[i]]<<" ?(y/n): ";
 			char key;
 			cin>>key;
 			if(key=='n'){
@@ -107,6 +107,7 @@ void checkrequests(int cid,node* head){			//checks the requests of userid
 int main()
 {
 	node* head = NULL;
+	cout<<endl<<"-----------------------------WELCOME TO lINKEDIN PROFILES-----------------------------"<<endl;
 	while(1)
 	{
 		cout<<endl<<"Linkedin profile connection"<<endl;
@@ -141,7 +142,7 @@ int main()
 				m[id]=name;
 				cout<<endl;
 				head=insertion(id,name,head);				//adding the users details
-				cout<<"Profile for "<<name<<" added successfully."<<endl;
+				cout<<"**Profile for "<<name<<" added successfully.**"<<endl;
 				break;
 			}
 			case 2:
@@ -156,7 +157,7 @@ int main()
 				cin>>oid;
 				if(m.find(uid)!=m.end()&& m.find(oid)!=m.end()){			//checks if entered id's valid or not
 					requesting(uid,oid,head);			//adding the id's of requesting user to the acceptor profile 
-					cout<<"Connection request sent from "<<m[uid]<<" to "<<m[oid]<<endl;
+					cout<<endl<<"Connection request sent from "<<m[uid]<<" to "<<m[oid]<<endl;
 				}
 				break;
 			}
